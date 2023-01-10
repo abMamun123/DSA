@@ -11,9 +11,9 @@ void input()
     int arr[n];
     for (int i = 0; i < n; i++)
         scanf("%d", &arr[i]);
-    bubble_sort(arr, n);
+    selection_sort(arr, n);
 }
-void bubble_sort(int arr[], int n)
+void selection_sort(int arr[], int n)
 {
     int i, j;
     for (i = 0; i < n; i++)

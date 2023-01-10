@@ -14,9 +14,13 @@ int bubble_sort(int arr[], int n)
     int i, j, temp, flag = 0;
     for (i = 0; i < n - 1; i++)
     {
+        printf("Iteration->%d ", i);
+        printf("\n");
         for (j = 0; j < n - i - 1; j++)
         {
-
+            printf("step-%d: ", j);
+            print_element(arr, n);
+            printf("->");
             if (arr[j] > arr[j + 1])
             {
                 temp = arr[j];
@@ -24,19 +28,18 @@ int bubble_sort(int arr[], int n)
                 arr[j + 1] = temp;
                 flag = 1;
             }
+            print_element(arr, n);
+            printf("\n");
         }
         if (flag = 0)
             break;
     }
-    print_element(arr, n);
 }
 void print_element(int arr[], int n)
 {
-    // print the sorted array
-    printf("Sorted Array: ");
     for (int i = 0; i < n; i++)
     {
-        printf("%d  ", arr[i]);
+        printf("%d ", arr[i]);
     }
 }
 int main()
