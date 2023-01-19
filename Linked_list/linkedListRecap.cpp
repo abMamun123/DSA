@@ -31,14 +31,14 @@ public:
     void insert_at_head(int value)
     {
         size++;
-        Node *a = create_new_node(value);
+        Node *newNode = create_new_node(value);
         if (head == NULL)
         {
-            head = a;
+            head = newNode;
             return;
         }
-        a->next = head;
-        head = a;
+        newNode->next = head;
+        head = newNode;
     };
     // Traverse in linkedList.........
     void traverse()
@@ -138,17 +138,74 @@ public:
         new_node->next = a->next;
         a->next = new_node;
     }
+    void delete_at_head()
+    {
+        if (head == NULL)
+            return;
+        size--;
+        Node *a = head;
+        head = a->next;
+        delete a;
+    }
+    void delete_at_any_index(int index)
+    {
+        if (index < 0 || index > size - 1)
+            return;
+        if (index == 0)
+        {
+            delete_at_head();
+            return;
+        }
+        size--;
+        Node *a = head;
+        int cur_index = 0;
+        while (cur_index != index - 1)
+        {
+            a = a->next;
+            cur_index++;
+        }
+        Node *b = a->next;
+        a->next = b->next;
+        delete b;
+    };
+    void insert_after_value(int value, int data)
+    {
+        Node *a = head;
+        while (a != NULL)
+        {
+            if (a->data == value)
+            {
+                break;
+            }
+            if (a->data == NULL)
+            {
+                cout << value << " not found in list";
+                return;
+            }
+            a = a->next;
+        }
+        size++;
+        Node *new_node = create_new_node(data);
+        new_node->next = a->next;
+        a->next = new_node;
+    };
 };
 int main()
 {
     LinkedList l;
+    cout<<l.head;
     l.insert_at_head(10);
     l.insert_at_head(20);
     l.insert_at_head(30);
     l.insert_at_head(20);
-    l.getSize();
     l.traverse();
+    l.getSize();
     l.insert_at_anyIndex(1, 100);
+    l.insert_at_anyIndex(0, 500);
+    l.traverse();
+    l.getSize();
+    l.delete_at_any_index(5);
+    l.insert_after_value(20, 500);
     l.traverse();
     l.getSize();
     return 0;
