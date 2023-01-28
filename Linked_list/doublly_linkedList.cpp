@@ -122,7 +122,7 @@ int main()
     l.insert_at_head(20);
     l.insert_at_head(30);
     l.traverse();
-    l.delete_at_any_index();
+    l.delete_at_any_index(1);
     l.traverse();
     l.getSize();
     return 0;
