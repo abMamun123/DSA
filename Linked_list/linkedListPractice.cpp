@@ -95,7 +95,6 @@ public:
             }
             else
             {
-                a = a->next;
                 break;
             }
         }
@@ -103,8 +102,9 @@ public:
         {
             if (a->next->data == 0)
             {
+                node *b = a->next;
                 a->next = a->next->next;
-                delete a->next;;
+                delete b;
             }
             else
                 a = a->next;
@@ -125,17 +125,45 @@ public:
         }
         return sum;
     }
+    // void delete_zero()
+    // {
+    //     node *curr = head;
+    //     while (curr != NULL && curr->data == 0)
+    //     {
+    //         head = curr->nxt;
+    //         delete curr;
+    //         curr = head;
+    //     }
+    //     if (curr == NULL)
+    //         return;
+    //     node *prev = curr;
+    //     curr = curr->nxt;
+    //     while (curr != NULL)
+    //     {
+    //         if (curr->data == 0)
+    //         {
+    //             prev->nxt = curr->nxt;
+    //             delete curr;
+    //             curr = prev->nxt;
+    //         }
+    //         else
+    //         {
+    //             prev = curr;
+    //             curr = curr->nxt;
+    //         }
+    //     }
+    // }
 };
 int main()
 {
     linked_list l;
     // l.get_size();
     l.insert_at_head(0);
-    l.insert_at_head(0);
+    l.insert_at_head(9);
     l.insert_at_head(5);
     l.insert_at_head(0);
     l.insert_at_head(0);
-    l.insert_at_head(0);
+    l.insert_at_head(5);
     l.insert_at_head(2);
     l.insert_at_head(0);
     l.insert_at_head(0);
