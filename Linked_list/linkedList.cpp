@@ -15,27 +15,51 @@ int main()
         cin >> x;
         l.push_back(x);
     }
-    // one way of printing list
-    //  list<int>:: iterator it;
-    //  for(it = l.begin();it!=l.end();it++)
-    //  cout<<*it<<" ";
-    // erase node in list
     auto it = l.begin();
-    while (it != l.end())
-    {
-        if (*it == 0)
-        {
-            it = l.erase(it);
-        }
-        else
-        {
-            it++;
-        }
-    }
+    // int x;
+    // cin >> x;
+    // l.remove(x);
+    // l.reverse();
+    // l.sort();
+    //l1.merge(l2);
     // 2nd way of printing list
     for (auto it : l)
     {
         cout << it << " ";
     }
     return 0;
+    // one way of printing list
+    //  list<int>:: iterator it;
+    //  for(it = l.begin();it!=l.end();it++)
+    //  cout<<*it<<" ";
+    // erase node in list
+
+    // auto it1 = l.begin();
+    //    advance(it,3);
+    // l.erase(it,it1);
+    // l.insert(it,79);
+    // while (it != l.end())
+    // {
+    //     if (*it == 0)
+    //     {
+    //         it = l.insert(it,79);
+    //     }
+    //     else
+    //     {
+    //         it++;
+    //     }
+    // }
+    // while (it != l.end())
+    // {
+    //     if (*it == 0)
+    //     {
+    //         it = l.erase(it);
+    //     }
+    //     else
+    //     {
+    //         it++;
+    //     }
+    // }
+
+    
 }
